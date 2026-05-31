@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgical Drapes & Skin Prep — Surgical Technologist Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #132240;
+    --navy-light: #1e3560;
+    --teal: #00b4b0;
+    --teal-dim: #007f7d;
+    --teal-pale: #e0f7f7;
+    --gold: #c8963e;
+    --gold-pale: #fdf3e2;
+    --red: #b03030;
+    --red-pale: #fdeaea;
+    --green: #1e7a4a;
+    --green-pale: #e5f5ec;
+    --purple: #5b3d9e;
+    --purple-pale: #eeebf9;
+    --slate: #4a5568;
+    --muted: #718096;
+    --border: #dde3ec;
+    --bg: #f5f7fb;
+    --white: #ffffff;
+    --text: #1a202c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,176,0.15) 0%, transparent 70%);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20%;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,61,158,0.1) 0%, transparent 70%);
+  }
+  .header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+  .header-kicker { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 8px; }
+  .header h1 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: #fff; line-height: 1.15; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .header-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
+  .hbadge { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.07); }
+
+  .nav-wrap { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 960px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-tab { flex-shrink: 0; padding: 1rem 1.4rem; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; color: var(--muted); border: none; background: transparent; cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.18s, border-color 0.18s; white-space: nowrap; }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--navy); border-bottom-color: var(--teal); }
+  .tab-icon { display: inline-block; margin-right: 6px; font-size: 14px; }
+
+  .content-wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-heading { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--navy); margin-bottom: 4px; }
+  .section-sub { color: var(--muted); font-size: 13px; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+  .sub-label { font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); margin: 1.5rem 0 0.75rem; }
+
+  .alert { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 10px; margin-bottom: 1.25rem; font-size: 14px; line-height: 1.6; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-teal   { background: var(--teal-pale);   border-left: 4px solid var(--teal); }
+  .alert-gold   { background: var(--gold-pale);   border-left: 4px solid var(--gold); }
+  .alert-red    { background: var(--red-pale);    border-left: 4px solid var(--red); }
+  .alert-green  { background: var(--green-pale);  border-left: 4px solid var(--green); }
+  .alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); }
+  .alert-navy   { background: #e8ecf4;            border-left: 4px solid var(--navy-light); }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.35rem; }
+  .card-full { grid-column: 1 / -1; }
+  .card-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card-title-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; font-size: 13px; }
+  .icon-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .icon-gold   { background: var(--gold-pale);   color: var(--gold); }
+  .icon-red    { background: var(--red-pale);    color: var(--red); }
+  .icon-green  { background: var(--green-pale);  color: var(--green); }
+  .icon-navy   { background: #e8ecf4;            color: var(--navy); }
+  .icon-purple { background: var(--purple-pale); color: var(--purple); }
+
+  ul.detail-list { list-style: none; padding: 0; }
+  ul.detail-list li { padding: 7px 0 7px 22px; position: relative; font-size: 14px; color: var(--slate); border-bottom: 1px solid var(--bg); line-height: 1.6; }
+  ul.detail-list li:last-child { border-bottom: none; }
+  ul.detail-list li::before { content: '▸'; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 9px; }
+  ul.detail-list li strong { color: var(--text); }
+  ul.detail-list ul.sub-list li::before { content: none; }
+  ul.sub-list { margin-top: 6px; padding-left: 1rem; list-style: disc; color: var(--muted); font-size: 13px; }
+  ul.sub-list li { padding: 2px 0; border: none; }
+
+  .steps { display: flex; flex-direction: column; gap: 0; counter-reset: step; position: relative; padding-left: 38px; }
+  .steps::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 2px; background: var(--border); }
+  .step-item { position: relative; padding: 0 0 18px 0; counter-increment: step; }
+  .step-item::before { content: counter(step); position: absolute; left: -38px; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 1; }
+  .step-item p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .step-item strong { color: var(--text); font-weight: 600; }
+
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; padding: 3px 9px; border-radius: 100px; }
+  .badge-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .badge-red    { background: var(--red-pale);    color: var(--red); }
+  .badge-gold   { background: var(--gold-pale);   color: #a07020; }
+  .badge-green  { background: var(--green-pale);  color: var(--green); }
+  .badge-navy   { background: #e8ecf4;            color: var(--navy-light); }
+  .badge-purple { background: var(--purple-pale); color: var(--purple); }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 1.25rem; }
+  .data-table th { background: var(--navy); color: #fff; padding: 11px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; }
+  .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--slate); vertical-align: top; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: var(--bg); }
+
+  .accordion { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; }
+  .acc-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--navy); cursor: pointer; user-select: none; }
+  .acc-head:hover { background: var(--navy-mid); }
+  .acc-head-left { flex: 1; }
+  .acc-head-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+  .acc-head-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .acc-chevron { color: rgba(255,255,255,0.5); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+  .acc-chevron.open { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 18px; border-top: 1px solid var(--border); }
+  .acc-body.open { display: block; }
+
+  /* PRIORITY / ORDER MARKERS */
+  .order-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.25rem; }
+  .order-item { display: flex; gap: 14px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; background: var(--white); border: 1px solid var(--border); }
+  .order-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .o-green  { background: var(--green-pale);  color: var(--green); }
+  .o-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .o-gold   { background: var(--gold-pale);   color: var(--gold); }
+  .o-red    { background: var(--red-pale);    color: var(--red); }
+  .o-navy   { background: #e8ecf4;            color: var(--navy-light); }
+  .o-purple { background: var(--purple-pale); color: var(--purple); }
+  .order-content p { font-size: 14px; color: var(--slate); line-height: 1.55; }
+  .order-content strong { color: var(--text); }
+
+  /* DO/DON'T */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .do-box { border-radius: 10px; padding: 14px; border: 1px solid var(--border); }
+  .do-box-header { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .do-box.green { background: var(--green-pale); border-color: #a8d5bc; }
+  .do-box.green .do-box-header { color: var(--green); }
+  .do-box.red   { background: var(--red-pale);   border-color: #e8aaaa; }
+  .do-box.red .do-box-header   { color: var(--red); }
+  .do-box ul { list-style: none; padding: 0; }
+  .do-box ul li { font-size: 13px; line-height: 1.55; padding: 3px 0 3px 18px; position: relative; color: var(--slate); }
+  .do-box.green ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 12px; }
+  .do-box.red   ul li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 12px; }
+
+  /* CALLOUT HIGHLIGHT BOX */
+  .highlight-box { background: var(--navy); border-radius: 10px; padding: 14px 18px; margin-bottom: 1.25rem; display: flex; gap: 12px; align-items: flex-start; }
+  .highlight-box-icon { font-size: 18px; flex-shrink: 0; }
+  .highlight-box p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .highlight-box strong { color: #fff; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  @media(max-width:600px){
+    .header h1 { font-size: 1.6rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .do-dont   { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-kicker">AST Standards of Practice · CST Reference</div>
+    <h1>Surgical Drapes & Skin Prep</h1>
+    <p class="header-sub">Surgical Draping · Patient Skin Preparation · Antiseptic Agents — Study Guide</p>
+    <div class="header-badges">
+      <span class="hbadge">SSI Prevention</span>
+      <span class="hbadge">ANSI / AAMI / ASTM</span>
+      <span class="hbadge">FDA Antiseptic Standards</span>
+      <span class="hbadge">OSHA / CDC</span>
+      <span class="hbadge">Standard Precautions</span>
+    </div>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showTab('drapes', this)"><span class="tab-icon">🧻</span>Surgical Drapes</button>
+    <button class="nav-tab" onclick="showTab('skinprep', this)"><span class="tab-icon">🧴</span>Skin Prep Technique</button>
+    <button class="nav-tab" onclick="showTab('special', this)"><span class="tab-icon">⚕️</span>Special Situations</button>
+    <button class="nav-tab" onclick="showTab('agents', this)"><span class="tab-icon">📋</span>Agents & Documentation</button>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ════════════════════════════
+       TAB 1: SURGICAL DRAPES
+  ════════════════════════════ -->
+  <div id="drapes" class="section active">
+    <h2 class="section-heading">Surgical Drapes</h2>
+    <p class="section-sub">Standards I – IX: sterile draping requirements, handling rules, fluid resistance, flame resistance, drape characteristics, reusable woven drapes, laser precautions, and team selection involvement. Effective April 13, 2008.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Primary purpose:</strong> To isolate the surgical site from other areas of the patient's body and nonsterile areas of the OR table, contributing to the reduction of SSI risk. Drapes serve as a barrier to endogenous (patient's own skin flora — the major SSI source) and exogenous contamination. Draping also expands the sterile field, allowing the CST and sterile team to place instruments and supplies on the drapes, including establishing the neutral zone for passing sharps.</div>
+    </div>
+
+    <p class="sub-label">Standard I — Only sterile drapes in the sterile field</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">✅</span>Sterile drape requirements</div>
+        <ul class="detail-list">
+          <li>Only sterile drapes may be used within the sterile field</li>
+          <li>Must be properly sterilized per ANSI and AAMI recommendations — sterilization methods include radiation, steam, and ethylene oxide</li>
+          <li>Sterile team members must not come into contact with the contaminated <strong>undersurface</strong> of the drape that has contacted a nonsterile surface</li>
+          <li>Drapes should be handled as little as possible by sterile team members</li>
+          <li>Drapes should not be allowed to <strong>unfold</strong> before placement on the patient</li>
+          <li><strong>Non-perforating towel clips only</strong> — perforating clips create holes that allow microorganism migration onto the sterile field from the patient's skin</li>
+          <li>Contaminated drapes at end of procedure: placed in impervious biohazard-labeled bags</li>
+          <li>Reusable woven drapes: follow manufacturer's care and reprocessing instructions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Critical draping rules</div>
+        <ul class="detail-list">
+          <li><strong>Once positioned, a drape must never be repositioned</strong> — repositioning brings the nonsterile hanging portion into the sterile field, contaminating it and transferring microbes to the patient</li>
+          <li>The top of OR table, back table, and prep table is sterile; the portion hanging below the edge is <strong>nonsterile</strong></li>
+          <li>CST, CSFA, and surgeon must maintain <strong>12 inches</strong> from the OR table during the draping procedure — prevents contamination of sterile gloves and gown front</li>
+          <li>Must not reach across an undraped OR table to perform draping</li>
+          <li>When handing the four towels to the surgeon or CSFA for squaring off the incision site, the CST must stand on the <strong>same side</strong> of the OR table</li>
+          <li>Sterile gloved hands must be protected by <strong>"cuffing"</strong> during drape placement to prevent contamination</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard II — Integrity of the microbial barrier</p>
+    <div class="alert alert-red">
+      <span class="alert-icon">🚫</span>
+      <div><strong>A compromise in integrity = contamination.</strong> Drapes must be free of holes, punctures, and tears. Drapes must be resistant to punctures and tears to prevent microbial contamination of the sterile field. Any breach in the drape barrier compromises the sterile field.</div>
+    </div>
+
+    <p class="sub-label">Standard III — Fluid resistance</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">💧</span>Strike-through contamination prevention</div>
+        <ul class="detail-list">
+          <li>Draping material must be <strong>impervious and fluid-resistant</strong> — prevents strike-through contamination from microorganisms; reducing strike-through reduces SSI risk</li>
+          <li>Blood, body fluids, and irrigating solutions must be <strong>suctioned and/or sponged as soon as possible</strong> from the drape surface</li>
+          <li>Impervious barriers incorporated into drapes, particularly around the fenestration, provide additional protection and increase resistance to strike-through</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-gold">⚠️</span>Drape placement and irrigation risk</div>
+        <ul class="detail-list">
+          <li>When preparing the sterile back table and Mayo stand, do <strong>not</strong> place drapes underneath the basin</li>
+          <li>If the circulator pours irrigation solution into the basin before the patient is draped, spilled fluid can contact the drapes and cause strike-through contamination — rendering them useless</li>
+          <li>A replacement sterile drape would be required, increasing costs and disrupting the setup</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard IV — Lint free</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-purple">🔬</span>Why lint-free drapes are required</div>
+      <ul class="detail-list">
+        <li>Lint is recognized as a <strong>vector for causing SSI</strong></li>
+        <li>Airborne lint serves as a transport medium for microbes</li>
+        <li>Lint-free drapes minimize airborne contamination and the spread of particles into the surgical wound</li>
+      </ul>
+    </div>
+
+    <p class="sub-label">Standard V — Flame resistance</p>
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard V · Fire Safety</div>
+          <div class="acc-head-title">Drape flammability standards & fire prevention</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>No local, state, or federal regulations currently establish performance standards specifically for surgical drapes; however, most manufacturers have adopted the same standards used for surgical gowns</li>
+          <li><strong>NFPA No. 702-1980:</strong> Standard for Classification of the Flammability of Wearing Apparel — removed from NFPA's active list in 1987 but still used as a reference by manufacturers, FDA, and AAMI. Established four classes based on ignition and flame spread. <strong>Class 1 (relatively slow burn)</strong> is most relevant for surgical drapes</li>
+          <li><strong>CPSC 16 CFR Part 1610:</strong> Standard for Flammability of Clothing Textiles. When evaluating a drape, confirm the manufacturer's documentation includes: "The Basic Fabric Meets the Class 1 Flammability Requirements for CPSC 16 CFR Part 1610"</li>
+          <li>Drapes must resist ignition from lasers, fiberoptics, and electrosurgery within the sterile field</li>
+          <li>Drape fires can cause serious injuries to both the patient and surgical team members</li>
+          <li>All surgical team members must be properly educated in fire prevention and healthcare facility protocol</li>
+          <li>All HCWs must complete <strong>annual fire safety competencies</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard VI — Drape evaluation factors</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">📋</span>Performance characteristics</div>
+        <ul class="detail-list">
+          <li>Easy to handle and <strong>flexible</strong> — conforms to the contour of the patient and OR table as much as possible</li>
+          <li>Free of toxic substances such as dyes and laundry detergent residues (particularly reusable woven drapes)</li>
+          <li><strong>Limited memory</strong> — draping material that retains a folded shape is difficult to work with and position properly</li>
+          <li>Fluid and microbial barrier evaluated using <strong>ASTM F1670</strong> (synthetic blood penetration) and <strong>ASTM F1671</strong> (bloodborne pathogen penetration) tests — the definitive tests per AAMI and FDA</li>
+          <li>Manufacturer must provide F1670/F1671 test results when drapes are being evaluated</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">📖</span>Selection guidance — key references</div>
+        <ul class="detail-list">
+          <li><strong>AAMI TIR No. 11-1994</strong> — Selection of Surgical Gowns and Drapes in Healthcare Facilities; highly recommended during evaluation</li>
+          <li><strong>ANSI/AAMI PB70</strong> — Liquid Barrier Performance and Classification of Protective Apparel and Drapes Intended for Use in Healthcare Facilities</li>
+          <li>Evaluate a variety of manufacturers' drapes and review documentation to verify ANSI/AAMI barrier performance standards are met</li>
+          <li>Surgical team members must be involved in the drape selection process</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard VII — Reusable woven drapes</p>
+    <div class="card-grid">
+      <div class="card card-full">
+        <table class="data-table">
+          <thead><tr><th>Requirement</th><th>Specification</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Minimum thread count</strong></td><td>270–280 threads per inch</td></tr>
+            <tr><td><strong>Chemical treatment</strong></td><td>Recommended to increase barrier properties</td></tr>
+            <tr><td><strong>Lifecycle limit</strong></td><td>Retire after approximately 75 launderings/sterilizations — high thread count woven drapes should be considered a non-effective barrier after this point</td></tr>
+            <tr><td><strong>Tracking system</strong></td><td>A system must record the number of uses, launderings, and sterilizations for each drape — repeated laundering and sterilization decreases barrier effectiveness</td></tr>
+            <tr><td><strong>Pre-sterilization inspection</strong></td><td>Reusable drapes must be visually inspected before every sterilization</td></tr>
+            <tr><td><strong>Repair method for small holes</strong></td><td>Heat-sealed patch of the same draping material applied to small holes or thin/stretched areas — <strong>stitching is strictly prohibited</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard VIII — Laser procedure draping</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-gold">⚡</span>Laser precautions during draping</div>
+      <ul class="detail-list">
+        <li>Consider the use of <strong>aluminum-coated drapes</strong> for laser procedures</li>
+        <li>Currently, no draping material is <strong>100% resistant</strong> to laser beam impact — precautions are always required regardless of drape type</li>
+        <li>Outline the surgical site with <strong>wet towels</strong> when draping for laser procedures</li>
+        <li>Refer to AST Standards of Practice for the Safe Use of Lasers for complete guidance</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       TAB 2: SKIN PREP TECHNIQUE
+  ════════════════════════════ -->
+  <div id="skinprep" class="section">
+    <h2 class="section-heading">Skin Prep Technique</h2>
+    <p class="section-sub">Standards I – IV: preoperative patient prep, hair removal, allergy screening, patient instructions, and standardized skin prep technique. Effective October 20, 2008.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core purpose:</strong> The majority of SSIs are caused by the patient's own microbial flora entering the surgical wound. Since the patient's skin cannot be sterilized, skin prep removes debris, cleanses the skin, reduces resident and transient microbes to an irreducible minimum, and hinders microbial growth during surgery.</div>
+    </div>
+
+    <p class="sub-label">Standard I — Preoperative preparations</p>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard I · Preop Shower</div>
+          <div class="acc-head-title">Preoperative patient bathing & CHG instructions</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Surgeon's orders may include the patient bathing or showering with an antiseptic agent the night before surgery and/or the morning of surgery</li>
+          <li>The <strong>CDC recommends</strong> requiring patients to bathe or shower with an antiseptic agent the night before surgery</li>
+          <li><strong>CHG patient instructions — all three must be communicated:</strong>
+            <ul class="sub-list">
+              <li>CHG is inactivated by soaps and shampoos — the patient must ensure soap and shampoo are thoroughly rinsed off before using CHG</li>
+              <li>CHG is an eye irritant and can burn the corneas; it is also ototoxic — patient must keep CHG away from eyes and ears</li>
+              <li>Patient must not use body lotion after bathing with CHG — lotion inactivates the residual bacteriostatic effects of CHG</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard I · Allergy Screening</div>
+          <div class="acc-head-title">Patient allergy interview & documentation</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>The preoperative patient interview must include asking about known allergies and reviewing the patient's history and physical</li>
+          <li><strong>Shellfish allergy (may contain iodine)</strong> → use a non-iodine prep solution; allergy to iodine is already indicated</li>
+          <li><strong>Allergies to strawberries, bananas, kiwis, or poinsettias</strong> (contain latex elements) → document as latex allergic; perform shave and skin prep in a latex-free OR environment</li>
+          <li>Allergy to antiseptic solutions must be documented in the patient chart, on the <strong>cover of the patient chart</strong>, and on the <strong>patient allergy wristband</strong> worn on the day of surgery</li>
+          <li>Latex allergy must be documented the same way</li>
+          <li>The patient care plan must be revised to reflect the allergy and ensure the correct antiseptic agent is used or a latex-free environment is established</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard I · Hair Removal</div>
+          <div class="acc-head-title">Shave prep — evidence & guidelines</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="alert alert-gold" style="margin-bottom:12px">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Hair removal is not recommended.</strong> The surgical team should follow the surgeon's orders. If ordered, clippers are the preferred method — never a razor.</div>
+        </div>
+        <ul class="detail-list">
+          <li><strong>IHI, NPSF, and TMA (2006):</strong> promote elimination of surgical site shaving; if hair removal is necessary, perform with clippers right before surgery</li>
+          <li><strong>Cochrane Database (11 RCTs):</strong> no difference in SSI rates between hair removal and no hair removal; clipping and depilatory creams result in fewer SSIs vs. razor shaving; no difference in SSI between shaving one day before vs. day of surgery</li>
+          <li><strong>Cranial procedures:</strong> two studies found no infections or complications and no discernible increase in SSI when cranial surgery performed without hair removal; also provides positive psychological benefit to patients</li>
+          <li><strong>Joanna Briggs Institute:</strong> surgery without hair removal is preferable; clipping is the overall preferred method if removal is necessary; perform as close to surgery time as possible (preferably less than 2 hours before surgery)</li>
+          <li>If ordered: <strong>performed in the preoperative holding area</strong> — not in the OR — to maintain patient privacy</li>
+          <li>Preferred method: <strong>electric clippers</strong>; second choice: depilatory cream (test on small skin patch first to check for reaction)</li>
+          <li>Follow manufacturer's instructions for cleaning and disinfecting reusable electric clippers; single-use shaving heads disposed of in a sharps container</li>
+          <li>Wet shave prep recommended — water softens hair and provides a smoother surface, reducing skin irritation and cuts</li>
+          <li>Craniotomy hair: placed in a secure labeled container (preferably ziplock-type bag labeled with patient name and facility ID number) — transported with the patient postoperatively, as hair is the patient's property</li>
+          <li>Loose hair collected with hypoallergenic tape or latex-free peel-and-stick mitt to prevent hair from entering the surgical wound</li>
+          <li><strong>Eyebrows must never be shaved</strong>; if thick, carefully trimmed with small scissors. Long eyelashes carefully trimmed with small scissors</li>
+          <li>Patient education: instruct patient not to perform a self-shave prep or use a depilatory the night before or morning of surgery</li>
+          <li>Alternative for keeping hair out of cranial wounds without removal: apply non-flammable gel to the hair</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard I · Additional Preop Prep</div>
+          <div class="acc-head-title">Jewelry, cosmetics, and nail requirements</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li><strong>Body jewelry</strong> must be removed from the area of the skin prep — skin under jewelry is a source of high microbial counts; removal allows proper cleansing, prevents patient injury during positioning, prevents pooling of prep solutions, and prevents electrosurgical burns</li>
+          <li>Prior to skin prep, the pierced area should be cleaned</li>
+          <li><strong>No cosmetics</strong> on the day of surgery — cosmetics can inhibit the effectiveness of the antiseptic solution</li>
+          <li>For <strong>finger, hand, or wrist surgery</strong>: patient instructed to cut nails short, thoroughly clean subungual areas during the preop bath or shower, remove artificial nails and nail polish</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard IV — Standardized skin prep technique</p>
+
+    <div class="highlight-box" style="margin-bottom:1.25rem">
+      <span class="highlight-box-icon">📌</span>
+      <p><strong>Most important principle:</strong> Skin prep always progresses from the <strong>clean area to the dirty area</strong> — begin at the planned incision site and carry to the periphery using an ever-widening circular motion. Once the periphery is reached, discard the sponge and do not bring it back over the clean area.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="steps">
+        <div class="step-item"><p><strong>Perform a hand wash</strong> before performing the skin prep.</p></div>
+        <div class="step-item"><p><strong>Remove gross soil, grease, skin oil, blood, and other debris</strong> from the skin prior to the skin prep using a non-aseptic, non-irritating, non-flammable, non-toxic fat solvent or degreaser.</p></div>
+        <div class="step-item"><p><strong>Don sterile gloves.</strong> The skin prep is performed using sterile technique — avoid touching nonsterile items (OR bed sheets, blankets) with sterile gloves, prep solution sponges, or paint solution sponge sticks.</p></div>
+        <div class="step-item"><p><strong>Apply sterile towels at the periphery</strong> of the skin prep boundaries to prevent accumulation of agents. Cover ECG leads, electrosurgery dispersive electrode (grounding pad), and tourniquet with an adhesive clear plastic drape to prevent prep fluid accumulation and chemical burns. If antiseptic solution contacts any of these, they must be removed and replaced.</p></div>
+        <div class="step-item"><p><strong>Begin at the planned incision site and carry to the periphery</strong> using an ever-widening circular motion. Duration: minimum of 5 minutes and until all sponges have been used. Boundaries must be <strong>much wider</strong> than the planned incision — allows for incision lengthening, trocar placement, conversion from endoscopic to open procedure, and wound drain placement.</p></div>
+        <div class="step-item"><p><strong>Discard each sponge once the periphery is reached.</strong> Never bring a sponge back over a previously cleaned area — it would transfer microbes from the dirty periphery to the clean incision site.</p></div>
+        <div class="step-item"><p><strong>Apply paint solution</strong> with prep stick sponges using the <strong>no-touch technique</strong> — avoids contamination from gloves that contacted the prep-solution–soaked sponges.</p></div>
+        <div class="step-item"><p><strong>Do not allow prep solution to pool</strong> under or adjacent to the patient — pooling can cause chemical burns and increases the risk of electrosurgical or laser ignition. At the end of the procedure, towels removed carefully to avoid dragging across the prep area.</p></div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">✅</span>Key technique reminders</div>
+        <ul class="detail-list">
+          <li>Minimum duration: <strong>5 minutes</strong> and until all sponges are used — ideal duration not definitively established, same as surgical scrub</li>
+          <li>Prep boundaries much wider than planned incision site</li>
+          <li>Use gentle pressure on patients with <strong>friable skin</strong></li>
+          <li>Alcohol-based solution must be <strong>completely dry before placing drapes</strong> — fumes building up under drapes can ignite, particularly if ESU or laser will be used</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Absolute prohibitions</div>
+        <ul class="detail-list">
+          <li><strong>CHG, alcohol, and alcohol-based agents must not be used on mucous membranes</strong></li>
+          <li>Prep solution must not be allowed to pool or accumulate under or adjacent to the patient</li>
+          <li>Antiseptic agents must always remain in the manufacturer's original container — never refill or transfer to a secondary container</li>
+          <li>Flammable solutions must never be warmed — warming makes chemicals volatile and unstable, creating a fire hazard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       TAB 3: SPECIAL SITUATIONS
+  ════════════════════════════ -->
+  <div id="special" class="section">
+    <h2 class="section-heading">Special Situations</h2>
+    <p class="section-sub">Standards V – VII: contaminated area sequencing, dual-site surgical preps, eye and facial preps, stoma management, and open wound preparation.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core rule:</strong> Contaminated areas are always prepped last. The only exception is the umbilicus, which is prepped first to prevent debris from splashing onto the already-prepped abdomen. Always progress from clean to dirty.</div>
+    </div>
+
+    <p class="sub-label">Standard V — Contaminated area sequencing</p>
+
+    <div class="highlight-box" style="margin-bottom:1.25rem">
+      <span class="highlight-box-icon">⭐</span>
+      <p><strong>Exception to the "dirty last" rule — the umbilicus:</strong> The umbilicus is contaminated, but whenever it is part of the skin prep it is prepped <strong>first</strong>, using prep-solution–soaked cotton-tipped applicators. This prevents debris from the umbilicus from splashing onto the prepped abdomen.</p>
+    </div>
+
+    <p class="sub-label">Areas always prepped last</p>
+    <div class="order-list">
+      <div class="order-item">
+        <div class="order-num o-red">!</div>
+        <div class="order-content"><p><strong>Axilla, groin, perineal region, anus, and vagina</strong> — areas of high microbial counts; each sponge used and discarded, never reused</p></div>
+      </div>
+      <div class="order-item">
+        <div class="order-num o-red">!</div>
+        <div class="order-content"><p><strong>Stomas, skin ulcers, sinuses, and open wounds</strong> — considered contaminated; prepped last following clean-to-dirty principle</p></div>
+      </div>
+    </div>
+
+    <p class="sub-label">Stoma management</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-gold">⚠️</span>Stoma skin prep sequence</div>
+      <div class="steps">
+        <div class="step-item"><p>Isolate the stoma with a <strong>sterile clear plastic adhesive drape</strong></p></div>
+        <div class="step-item"><p>If the stoma is part of the skin prep, cleanse it first — mucin and organic matter can inhibit antiseptic agent effectiveness; removal is necessary</p></div>
+        <div class="step-item"><p>Place a <strong>betadine-soaked sponge over the stoma</strong> after cleansing</p></div>
+        <div class="step-item"><p>Complete the skin prep of the surrounding area</p></div>
+        <div class="step-item"><p>Remove the sponge and prep the stoma last, following the clean-to-dirty principle — prep solution must not contaminate the previously prepped area</p></div>
+      </div>
+    </div>
+
+    <p class="sub-label">Open wound (traumatic) management</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-red">🩹</span>Open wound prep sequence</div>
+      <ul class="detail-list">
+        <li>May require extensive irrigation with <strong>warm sterile normal saline</strong> — bulb syringe for small wounds, pulse lavage for larger wounds</li>
+        <li>Place a <strong>moisture-proof pad</strong> under the patient before irrigation; dry towels or sheets may also be needed after</li>
+        <li>Surgeon may debride the open wound after irrigation</li>
+        <li><strong>Prep the surrounding area first</strong> — pack the open wound with sterile gauze while surrounding skin is being prepped</li>
+        <li>Remove the sterile gauze and <strong>prep the open wound last</strong></li>
+      </ul>
+    </div>
+
+    <p class="sub-label">Penis prep</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-navy">📋</span>Foreskin management</div>
+      <ul class="detail-list">
+        <li><strong>Retract the foreskin</strong> (uncircumcised patients) and cleanse thoroughly</li>
+        <li>After cleansing, the foreskin must be <strong>placed back over the glans</strong> — avoids vascular disruption</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+    <p class="sub-label">Standard VI — Dual-site surgical preps</p>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard VI · Graft Procedures</div>
+          <div class="acc-head-title">Skin, bone, or vascular graft — separate setups</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Separate skin prep setups are required for the donor and recipient sites</li>
+          <li><strong>Donor site prepped first</strong> with a colorless solution, most often CHG — allows the surgeon to properly visualize the skin while taking the graft</li>
+          <li><strong>Recipient site</strong> is often an open wound (e.g., a burn) and therefore is considered contaminated; <strong>must not be prepped with alcohol, alcohol-based agents, or povidone-iodine</strong> — these can cause chemical burns of the tissues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard VI · Dual-Site Preps</div>
+          <div class="acc-head-title">Abdominal-perineal & abdominal-vaginal procedures</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Two separate skin preps required — the perineal and vaginal areas are considered contaminated</li>
+          <li><strong>Perineal or vaginal area prepped first</strong> — avoids splashing and contaminating the abdomen if it were prepped first</li>
+          <li>If using povidone-iodine: the mucous membranes of the vagina may only be prepped with the <strong>paint solution</strong> (not scrub solution)</li>
+          <li>After the perineum or vagina is prepped, the area must be covered with <strong>sterile towels</strong> during the abdominal prep</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <p class="sub-label">Standard VII — Eye and facial preps</p>
+
+    <div class="alert alert-red">
+      <span class="alert-icon">🚫</span>
+      <div><strong>CHG and iodophors are contraindicated for eye and facial preps.</strong> Both agents can severely injure the cornea if they accidentally enter the eye. Additionally, both are ototoxic and can cause sensorineural deafness if they enter the inner ear.</div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">✅</span>Safe agents for eye/facial preps</div>
+        <ul class="detail-list">
+          <li><strong>Triclosan and PCMX</strong> are considered non-toxic and should be used for facial preps</li>
+          <li>Still ensure agents do not enter the eyes even with non-toxic agents</li>
+          <li>Warm sterile water used as the rinse</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">🛡️</span>Patient protection during eye/facial prep</div>
+        <ul class="detail-list">
+          <li>If patient is <strong>awake</strong>: advise patient to keep eyes closed during the prep</li>
+          <li>If patient is <strong>under anesthesia</strong>: protect eyes by placing a small sterile plastic adhesive drape over the eyes</li>
+          <li>Place <strong>cotton balls in the ears</strong> to prevent prep agent from entering the inner ear</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       TAB 4: AGENTS & DOCUMENTATION
+  ════════════════════════════ -->
+  <div id="agents" class="section">
+    <h2 class="section-heading">Agents & Documentation</h2>
+    <p class="section-sub">Standards II–III & VIII–X: FDA antiseptic agent requirements, alcohol-based solutions, storage rules, OSHA MSDS requirements, and complete documentation standards.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Key principle:</strong> The healthcare facility must provide FDA-approved agents with immediate, cumulative, and persistent antimicrobial action. Surgical team members and the infection control officer must be involved in evaluating and selecting skin prep agents. <strong>Cost must not be a factor</strong> in the decision-making process.</div>
+    </div>
+
+    <p class="sub-label">Standard II — FDA requirements for antiseptic agents</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-navy">🏛️</span>Required properties — FDA Division of Over-the-Counter Drug Products</div>
+      <ul class="detail-list">
+        <li>Substantially reduce transient microorganisms</li>
+        <li>Possess a <strong>broad-spectrum</strong> of antimicrobial properties</li>
+        <li>Be <strong>fast-acting</strong></li>
+        <li>Provide <strong>persistent, cumulative activity</strong></li>
+        <li>Be <strong>nonirritating</strong> to the skin</li>
+      </ul>
+    </div>
+
+    <p class="sub-label">Standard III — Alcohol as an antiseptic agent</p>
+
+    <div class="alert alert-gold">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Alcohol must not be used as the sole skin prep agent.</strong> Alcohol has rapid activity but no persistent, cumulative activity when used alone. It must always be used as part of a combination regimen (e.g., alcohol + CHG).</div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">🔬</span>Antimicrobial properties</div>
+        <ul class="detail-list">
+          <li>Mechanism: <strong>denaturing of proteins</strong></li>
+          <li><strong>60%–95% alcohol</strong> is most effective — higher concentrations are less effective because protein denaturing does not occur easily without water</li>
+          <li>Broad-spectrum: destroys Gram-positive and Gram-negative bacteria, <strong>MRSA, VRE</strong>, Mycobacterium tuberculosis, and fungi</li>
+          <li>Rapid activity when applied to skin</li>
+          <li>Alone: no persistent or cumulative activity — must be combined with another antiseptic agent</li>
+          <li>Alcohol-based solutions immediately lower microbial skin counts more effectively than other solutions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">📊</span>Agent effectiveness ranking</div>
+        <ul class="detail-list">
+          <li><strong>#1 — Alcohol-based solution with 0.5%–1% CHG:</strong> persistent activity equal to or greater than CHG alone; most effective overall</li>
+          <li><strong>#2 — Chlorhexidine gluconate (CHG) alone</strong></li>
+          <li><strong>#3 — Iodophors</strong></li>
+          <li><strong>#4 — Triclosan</strong></li>
+          <li><strong>#5 — PCMX (parachlorometaxylenol)</strong> — contradictory study results; further research required</li>
+          <li>An alcohol wipe after the paint solution has been applied is acceptable — alcohol is being used as part of the overall skin prep regimen</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard III · Usage Restrictions</div>
+          <div class="acc-head-title">When alcohol-based solutions cannot be used</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Must not be used when the patient's skin is <strong>visibly dirty or contaminated with proteinaceous materials</strong> — proteinaceous matter decreases the antimicrobial action; prewash with non-antimicrobial soap and dry thoroughly before applying</li>
+          <li><strong>Must not be used on mucous membranes</strong> — CHG, alcohol, and alcohol-based agents are all contraindicated on mucous membranes</li>
+          <li><strong>Open wounds / recipient graft sites</strong> — must not be prepped with alcohol, alcohol-based agents, or povidone-iodine (risk of chemical burns to tissues)</li>
+          <li><strong>Must be completely dry before draping</strong> — fumes can build up under drapes and be ignited by ESU or laser</li>
+          <li>Follow manufacturer's instructions for application — instructions vary by solution</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard VIII — Storage of antiseptic agents</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">📦</span>Storage requirements</div>
+        <ul class="detail-list">
+          <li>Always stored in the <strong>manufacturer's original container</strong></li>
+          <li>Container must <strong>never be refilled</strong> or agent transferred to a secondary container — contributes to microbial contamination of original and/or secondary container</li>
+          <li>Single-use containers are recommended</li>
+          <li>Alcohol and alcohol-containing solutions stored in a dry, cool area approved for flammable storage — away from flames, heating vents, and high temperatures; per NFPA and local/state regulations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-gold">🌡️</span>Warming of antiseptic solutions</div>
+        <ul class="detail-list">
+          <li>Follow manufacturer's instructions before warming any antiseptic solution</li>
+          <li><strong>Flammable solutions must never be warmed</strong> — chemicals become volatile and unstable; easily catches fire</li>
+          <li>Warming can change the chemical properties of a solution, <strong>reducing its microbial effectiveness</strong></li>
+          <li>If warmed, ensure it is not too hot — risk of patient burn</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label">Standard IX — MSDS / Safety Data Sheets</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-red">⚠️</span>OSHA mandate — Material Safety Data Sheets</div>
+      <ul class="detail-list">
+        <li>As mandated by OSHA, MSDSs for all antiseptic agents and chemicals stored and used in the surgery department must be <strong>readily available and accessible to all surgical personnel</strong></li>
+        <li>If unsure about handling, storage, use, or disposal of any agent or chemical, surgical personnel must review the MSDS and follow the instructions</li>
+      </ul>
+    </div>
+
+    <p class="sub-label">Standard X — Skin prep documentation</p>
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title"><span class="card-title-icon icon-teal">📄</span>Required documentation in the patient chart</div>
+        <table class="data-table" style="margin-top:8px;margin-bottom:0">
+          <thead><tr><th>Documentation Category</th><th>Required Elements</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Patient education & preop instructions</strong></td><td>Evidence that preoperative instructions were provided to the patient</td></tr>
+            <tr><td><strong>Jewelry removal</strong></td><td>Documentation that jewelry was removed and how it was handled</td></tr>
+            <tr><td><strong>Skin condition pre-shave prep</strong></td><td>Assessment of skin condition before any hair removal</td></tr>
+            <tr><td><strong>Shave prep</strong></td><td>Prep parameters; time of prep; method used; name of person who performed the shave prep</td></tr>
+            <tr><td><strong>Skin prep</strong></td><td>Prep parameters; time of prep; condition of skin; fat solvents or degreasers used; antiseptic agent(s) used; name(s) of person(s) performing the prep</td></tr>
+            <tr><td><strong>Postoperative skin condition</strong></td><td>Condition of the skin at the end of the procedure — documents any prep-related skin changes or reactions</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="sub-label">Key terms glossary</p>
+    <table class="data-table">
+      <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Endogenous contamination</strong></td><td>Contamination originating from the patient's own body — primarily the patient's skin flora; identified as the major source of SSI. The primary reason draping and skin prep are performed.</td></tr>
+        <tr><td><strong>Exogenous contamination</strong></td><td>Contamination from external sources — surgical team members and the OR environment. Drapes serve as a barrier to both endogenous and exogenous sources.</td></tr>
+        <tr><td><strong>Strike-through contamination</strong></td><td>Contamination occurring when fluid passes through a drape's microbial barrier, carrying microorganisms through to the sterile side. Prevented by impervious, fluid-resistant draping material.</td></tr>
+        <tr><td><strong>Fenestration</strong></td><td>The opening cut into a surgical drape that exposes the operative site; impervious barriers around the fenestration provide added protection against strike-through contamination.</td></tr>
+        <tr><td><strong>Cuffing</strong></td><td>Folding back the edge of a drape over the sterile gloved hands to protect against contamination when placing drapes on the patient.</td></tr>
+        <tr><td><strong>CHG (Chlorhexidine gluconate)</strong></td><td>A broad-spectrum antiseptic agent; inactivated by soaps/shampoos; ototoxic and cornea-irritating — contraindicated on mucous membranes and near eyes/ears.</td></tr>
+        <tr><td><strong>No-touch technique</strong></td><td>Method of applying paint solution using prep stick sponges without the gloves (which touched the prep-solution–soaked sponges) contacting the previously prepped skin; prevents contamination.</td></tr>
+        <tr><td><strong>Friable skin</strong></td><td>Skin that is fragile and easily damaged; gentle pressure must be used when applying prep agents to avoid injury.</td></tr>
+        <tr><td><strong>Limited memory (drapes)</strong></td><td>A desirable drape characteristic — draping material that does not retain its folded shape, making it easier to handle and conform to patient and table contours.</td></tr>
+        <tr><td><strong>ASTM F1670 / F1671</strong></td><td>ASTM test methods for assessing fluid and microbial barriers of surgical fabrics; F1670 tests resistance to synthetic blood; F1671 tests resistance to bloodborne pathogen penetration. FDA and AAMI confirm these are the definitive barrier tests.</td></tr>
+        <tr><td><strong>MSDS</strong></td><td>Material Safety Data Sheet — OSHA-mandated document for all chemicals and antiseptic agents used in the surgery department; must be readily accessible to all surgical personnel.</td></tr>
+        <tr><td><strong>Depilatory cream</strong></td><td>A chemical hair removal product; the second choice for hair removal after electric clippers; must be tested on a small skin patch before use on a larger area to check for patient reaction.</td></tr>
+        <tr><td><strong>Pulse lavage</strong></td><td>A method of wound irrigation using pulsating pressurized saline; used for large traumatic open wounds to remove debris before skin prep of the surrounding area.</td></tr>
+        <tr><td><strong>Subungual area</strong></td><td>The area beneath the fingernail — a source of high microbial counts; patients undergoing hand/finger/wrist surgery instructed to thoroughly clean this area during the preop shower.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleAcc(head) {
+  const body = head.nextElementSibling;
+  const chevron = head.querySelector('.acc-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const firstHead = document.querySelector('.acc-head');
+  if (firstHead) toggleAcc(firstHead);
+});
+</script>
+</body>
+</html>
